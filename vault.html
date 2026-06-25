@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vault</title>
+</head>
+<body>
+
+    <form id="vaultForm">
+        <input type="text" id="vaultInput" placeholder="Enter code">
+        <input type="submit" value="Submit">
+    </form>
+
+    <audio id="vaultAudio" src="media/phone1.wav"></audio>
+
+    <script>
+        document.getElementById('vaultForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var code = document.getElementById('vaultInput').value.trim();
+            var audio = document.getElementById('vaultAudio');
+            
+            if (code === "5-26-26" || code === "26-5-26") {
+                audio.play();
+            }
+        });
+    </script>
+
+</body>
+</html>
