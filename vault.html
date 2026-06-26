@@ -12,7 +12,9 @@
         <input type="submit" value="Submit">
     </form>
 
+    <!-- Both audio elements defined here -->
     <audio id="vaultAudio" src="media/phone1.wav"></audio>
+    <audio id="dontAudio" src="media/DONT.wav"></audio>
 
     <script>
         document.getElementById('vaultForm').addEventListener('submit', function(event) {
@@ -20,9 +22,16 @@
             
             var code = document.getElementById('vaultInput').value.trim();
             var audio = document.getElementById('vaultAudio');
+            var dontAudio = document.getElementById('dontAudio');
             
+            // Original date code constraint
             if (code === "5-26-26" || code === "26-5-26") {
                 audio.play();
+            }
+            
+            // New exterminator code constraint (case-insensitive checks)
+            if (code === "exterminator" || code === "Exterminator" || code === "EXTERMINATOR") {
+                dontAudio.play();
             }
         });
     </script>
