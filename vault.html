@@ -35,9 +35,11 @@
             }
 
             if (code === "niles" || code === "Niles" || code === "NILES") {
-                // Instantly turn the whole screen black
+                // Turn the background black
                 document.body.style.backgroundColor = "black";
-                document.body.innerHTML = ""; 
+                
+                // Hide the form instead of deleting everything, so the audio stays alive
+                document.getElementById('vaultForm').style.display = "none";
                 
                 // Play the audio file
                 nilesAudio.play();
