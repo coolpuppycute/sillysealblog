@@ -16,6 +16,7 @@
     <audio id="vaultAudio" src="media/phone1.wav"></audio>
     <audio id="dontAudio" src="media/DONT.wav"></audio>
     <audio id="nilesAudio" src="media/niles.wav"></audio>
+    <audio id="whoAudio" src="media/who.wav"></audio>
 
     <script>
         document.getElementById('vaultForm').addEventListener('submit', function(event) {
@@ -25,16 +26,20 @@
             var audio = document.getElementById('vaultAudio');
             var dontAudio = document.getElementById('dontAudio');
             var nilesAudio = document.getElementById('nilesAudio');
+            var whoAudio = document.getElementById('whoAudio');
+            
+            // Create a version of the code that is entirely lowercase for easy checking
+            var lowerCode = code.toLowerCase();
             
             if (code === "5-26-26" || code === "26-5-26") {
                 audio.play();
             }
             
-            if (code === "exterminator" || code === "Exterminator" || code === "EXTERMINATOR") {
+            if (lowerCode === "exterminator") {
                 dontAudio.play();
             }
 
-            if (code === "niles" || code === "Niles" || code === "NILES") {
+            if (lowerCode === "niles") {
                 // Turn the background black
                 document.body.style.backgroundColor = "black";
                 
@@ -43,6 +48,11 @@
                 
                 // Play the audio file
                 nilesAudio.play();
+            }
+
+            // Completely non-case-sensitive checks! "dan", "DAN", "dAn", etc. will all work now.
+            if (lowerCode === "dan" || lowerCode === "bree" || lowerCode === "insanity" || lowerCode === "paranoia") {
+                whoAudio.play();
             }
         });
     </script>
